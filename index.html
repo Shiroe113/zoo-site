@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>300 УЛЮБЛЕНЦІВ — Все для ваших улюбленців</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="logo">
+      <svg class="logo__icon" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- пальчики білі -->
+        <ellipse cx="18" cy="20" rx="9" ry="11" fill="white"/>
+        <ellipse cx="38" cy="8"  rx="9" ry="11" fill="white"/>
+        <ellipse cx="62" cy="8"  rx="9" ry="11" fill="white"/>
+        <ellipse cx="82" cy="20" rx="9" ry="11" fill="white"/>
+        <!-- подушечка-серце червона -->
+        <path d="M50 90 C28 74 10 61 10 47 C10 36 18 28 28 28 C34 28 42 32 50 40 C58 32 66 28 72 28 C82 28 90 36 90 47 C90 61 72 74 50 90Z" fill="#e53935"/>
+      </svg>
+      <span class="logo__text">300 УЛЮБЛЕНЦІВ</span>
+    </a>
+    <nav class="nav">
+      <a href="#catalog" class="nav__link">Каталог</a>
+      <a href="#about" class="nav__link">Про нас</a>
+      <a href="#contacts" class="nav__link">Контакти</a>
+    </nav>
+    <div class="header__actions">
+      <div class="search-box">
+        <input type="text" class="search-box__input" placeholder="Знайти товар..." id="searchInput" />
+        <button class="search-box__btn" onclick="handleSearch()">🔍</button>
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <h1 class="hero__title">Все найкраще<br/>для вашого улюбленця</h1>
+      <p class="hero__sub">БЕЗКОШТОВНА доставка зоотоварів</p>
+      <a href="#catalog" class="btn btn--primary">Перейти до каталогу</a>
+    </div>
+    <div class="hero__pets">
+      <div class="hero__pet hero__pet--1">🐶</div>
+      <div class="hero__pet hero__pet--2">🐱</div>
+      <div class="hero__pet hero__pet--3">🐰</div>
+      <div class="hero__pet hero__pet--4">🐟</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <h2 class="section-title">Категорії</h2>
+    <div class="categories__grid">
+      <button class="cat-card active" data-cat="all">
+        <span class="cat-card__icon">🛍️</span>
+        <span class="cat-card__label">Всі товари</span>
+      </button>
+      <button class="cat-card" data-cat="dogs">
+        <span class="cat-card__icon">🐶</span>
+        <span class="cat-card__label">Собаки</span>
+      </button>
+      <button class="cat-card" data-cat="cats">
+        <span class="cat-card__icon">🐱</span>
+        <span class="cat-card__label">Кішки</span>
+      </button>
+      <button class="cat-card" data-cat="birds">
+        <span class="cat-card__icon">🦜</span>
+        <span class="cat-card__label">Птахи</span>
+      </button>
+      <button class="cat-card" data-cat="fish">
+        <span class="cat-card__icon">🐟</span>
+        <span class="cat-card__label">Рибки</span>
+      </button>
+      <button class="cat-card" data-cat="rodents">
+        <span class="cat-card__icon">🐹</span>
+        <span class="cat-card__label">Гризуни</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="catalog__header">
+      <h2 class="section-title">Каталог товарів</h2>
+      <div class="catalog__sort">
+        <label for="sortSelect">Сортування:</label>
+        <select id="sortSelect" onchange="renderProducts()">
+          <option value="default">За замовчуванням</option>
+          <option value="price-asc">Ціна: за зростанням</option>
+          <option value="price-desc">Ціна: за спаданням</option>
+          <option value="name">За назвою</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <p class="catalog__empty" id="catalogEmpty" style="display:none;">Товари не знайдено</p>
+  </div>
+</section>
+
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="container contacts__inner">
+    <div class="contacts__info">
+      <h2 class="section-title">Контакти</h2>
+      <p>📍 Зпоріжжя, вул.Іванова, 2б</p>
+      <p>📞 +380 (44) 555-35-35</p>
+      <p>✉️ hello@zoomarket.ua</p>
+      <p>🕐 Пн–Вс: 10:00 — 21:00</p>
+    </div>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <h3>Напишіть нам</h3>
+      <input type="text" placeholder="Ваше ім'я" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Повідомлення" rows="4" required></textarea>
+      <button type="submit" class="btn btn--primary">Надіслати</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="logo">
+      <svg class="logo__icon" width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="18" cy="28" rx="9" ry="11" fill="white"/>
+        <ellipse cx="38" cy="16" rx="9" ry="11" fill="white"/>
+        <ellipse cx="62" cy="16" rx="9" ry="11" fill="white"/>
+        <ellipse cx="82" cy="28" rx="9" ry="11" fill="white"/>
+        <path d="M50 90 C28 74 10 61 10 47 C10 36 18 28 28 28 C34 28 42 32 50 40 C58 32 66 28 72 28 C82 28 90 36 90 47 C90 61 72 74 50 90Z" fill="#e53935"/>
+      </svg>
+      <span class="logo__text">300 УЛЮБЛЕНЦІВ</span>
+    </div>
+    <p>© 2026 300 УЛЮБЛЕНЦІВ. Всі права захищені.</p>
+    <div class="footer__links">
+      <a href="#">Політика конфіденційності</a>
+      <a href="#">Публічна оферта</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart" id="cartSidebar">
+  <div class="cart__header">
+    <h2>Кошик</h2>
+    <button class="cart__close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart__items" id="cartItems"></div>
+  <div class="cart__footer" id="cartFooter" style="display:none;">
+    <div class="cart__total">Разом: <strong id="cartTotal">0 ₴</strong></div>
+    <button class="btn btn--primary" onclick="checkout()">Оформити замовлення</button>
+  </div>
+  <p class="cart__empty" id="cartEmpty">Кошик порожній</p>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal" id="productModal">
+  <button class="modal__close" onclick="closeModal()">✕</button>
+  <div class="modal__img-wrap" id="modalImg"></div>
+  <div class="modal__body">
+    <span class="modal__cat" id="modalCat"></span>
+    <h2 class="modal__name" id="modalName"></h2>
+    <p class="modal__desc" id="modalDesc"></p>
+    <div class="modal__footer">
+      <div class="modal__prices" id="modalPrices"></div>
+      <button class="btn btn--primary" id="modalBtn"></button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
