@@ -2,6 +2,7 @@
 let PRODUCTS = [];
 let cart = JSON.parse(localStorage.getItem("zm_cart") || "[]");
 let activeCategory = "all";
+let activeType = "all";
 let searchQuery = "";
 
 // ===================== INIT =====================
@@ -38,6 +39,15 @@ function bindCategories() {
       renderProducts();
     });
   });
+
+  document.querySelectorAll(".type-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".type-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeType = btn.dataset.type;
+      renderProducts();
+    });
+  });
 }
 
 // ===================== SEARCH =====================
@@ -62,8 +72,9 @@ function renderProducts() {
   const sort = document.getElementById("sortSelect").value;
   let list = PRODUCTS.filter(p => {
     const catMatch = activeCategory === "all" || p.cat === activeCategory;
+    const typeMatch = activeType === "all" || p.type === activeType;
     const searchMatch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
-    return catMatch && searchMatch;
+    return catMatch && typeMatch && searchMatch;
   });
 
   if (sort === "price-asc") list.sort((a, b) => a.price - b.price);
