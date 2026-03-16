@@ -240,11 +240,30 @@ function toggleCart() {
 
 function checkout() {
   if (cart.length === 0) return;
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const lines = cart.map(i => `${i.emoji} ${i.name} × ${i.qty} — ${(i.price * i.qty).toLocaleString("uk")} ₴`).join("<br>");
+  document.getElementById("checkoutSummary").innerHTML =
+    `<strong>Ваше замовлення:</strong><br>${lines}<br><strong>Разом: ${total.toLocaleString("uk")} ₴</strong>`;
+  document.getElementById("checkoutOverlay").classList.add("open");
+  document.getElementById("checkoutModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCheckout() {
+  document.getElementById("checkoutOverlay").classList.remove("open");
+  document.getElementById("checkoutModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function submitCheckout(e) {
+  e.preventDefault();
   showToast("Замовлення оформлено! Дякуємо за покупку 🎉");
   cart = [];
   saveCart();
   renderCart();
+  closeCheckout();
   toggleCart();
+  e.target.reset();
 }
 
 // ===================== CONTACT FORM =====================

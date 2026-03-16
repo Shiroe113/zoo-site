@@ -29,7 +29,7 @@
     </nav>
     <div class="header__actions">
       <div class="search-box">
-        <input type="text" class="search-box__input" placeholder="Знайти товар..." id="searchInput" />
+        <input type="text" class="search-box__input" placeholder="Знайти товар..." id="searchInput" oninput="handleSearch()" />
         <button class="search-box__btn" onclick="handleSearch()">🔍</button>
       </div>
       <button class="cart-btn" onclick="toggleCart()">
@@ -187,6 +187,33 @@
       <button class="btn btn--primary" id="modalBtn"></button>
     </div>
   </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+<div class="modal checkout-modal" id="checkoutModal">
+  <button class="modal__close" onclick="closeCheckout()">✕</button>
+  <h2 class="checkout-modal__title">Оформлення замовлення</h2>
+  <form class="checkout-form" onsubmit="submitCheckout(event)">
+    <div class="checkout-form__field">
+      <label>Ім'я *</label>
+      <input type="text" id="checkoutName" placeholder="Ваше ім'я" required />
+    </div>
+    <div class="checkout-form__field">
+      <label>Email *</label>
+      <input type="email" id="checkoutEmail" placeholder="your@email.com" required />
+    </div>
+    <div class="checkout-form__field">
+      <label>Телефон *</label>
+      <input type="tel" id="checkoutPhone" placeholder="+380 XX XXX XX XX" required />
+    </div>
+    <div class="checkout-form__field">
+      <label>Коментар</label>
+      <textarea id="checkoutComment" placeholder="Коментар до замовлення..." rows="3"></textarea>
+    </div>
+    <div class="checkout-form__summary" id="checkoutSummary"></div>
+    <button type="submit" class="btn btn--primary checkout-form__submit">Підтвердити замовлення</button>
+  </form>
 </div>
 
 <!-- TOAST -->

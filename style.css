@@ -711,6 +711,49 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
+/* ===================== CHECKOUT MODAL ===================== */
+.checkout-modal { padding: 32px 28px 28px; }
+.checkout-modal__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-right: 28px;
+}
+.checkout-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.checkout-form__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.checkout-form__field input,
+.checkout-form__field textarea {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color var(--transition);
+  outline: none;
+}
+.checkout-form__field input:focus,
+.checkout-form__field textarea:focus { border-color: var(--primary); }
+.checkout-form__field textarea { resize: vertical; }
+.checkout-form__summary {
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.checkout-form__submit { width: 100%; justify-content: center; }
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
   .hero__inner { flex-direction: column; text-align: center; }
