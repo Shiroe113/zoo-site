@@ -55,8 +55,6 @@ function handleSearch() {
   searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
   if (searchQuery) {
     activeCategory = "all";
-    document.querySelectorAll(".cat-card").forEach(b => b.classList.remove("active"));
-    document.querySelector('[data-cat="all"]').classList.add("active");
   }
   renderProducts();
 }

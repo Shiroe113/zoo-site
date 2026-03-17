@@ -24,14 +24,142 @@
       <span class="logo__text">300 УЛЮБЛЕНЦІВ</span>
     </a>
     <nav class="nav">
-      <a href="#catalog" class="nav__link">Каталог</a>
-      <a href="#contacts" class="nav__link">Контакти</a>
-    </nav>
-    <div class="header__actions">
       <div class="search-box">
         <input type="text" class="search-box__input" placeholder="Знайти товар..." id="searchInput" oninput="handleSearch()" />
         <button class="search-box__btn" onclick="handleSearch()">🔍</button>
       </div>
+      <div class="nav__cat-item">
+        <a class="nav__link" onclick="filterSidenav('dogs','all')">🐶 Собаки</a>
+        <div class="nav__dropdown">
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Корм</div>
+            <a onclick="filterSidenav('dogs','food')">Сухий корм для собак</a>
+            <a onclick="filterSidenav('dogs','food')">Консерви для собак</a>
+            <a onclick="filterSidenav('dogs','food')">Кістки та ласощі</a>
+            <a onclick="filterSidenav('dogs','food')">Лікувальні корми</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Гігієна</div>
+            <a onclick="filterSidenav('dogs','care')">Грумінг собак</a>
+            <a onclick="filterSidenav('dogs','care')">Догляд і гігієна</a>
+            <a onclick="filterSidenav('dogs','care')">Косметика для собак</a>
+            <div class="nav__drop-title" style="margin-top:12px">Здоров'я</div>
+            <a onclick="filterSidenav('dogs','care')">Вітаміни для собак</a>
+            <a onclick="filterSidenav('dogs','care')">Засоби від бліх</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Турбота</div>
+            <a onclick="filterSidenav('dogs','accessories')">Аксесуари для собак</a>
+            <a onclick="filterSidenav('dogs','accessories')">Нашийники та повідці</a>
+            <a onclick="filterSidenav('dogs','accessories')">Сумки та переноски</a>
+            <a onclick="filterSidenav('dogs','toys')">Іграшки для собак</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__cat-item">
+        <a class="nav__link" onclick="filterSidenav('cats','all')">🐱 Кішки</a>
+        <div class="nav__dropdown">
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Корм</div>
+            <a onclick="filterSidenav('cats','food')">Сухий корм для кішок</a>
+            <a onclick="filterSidenav('cats','food')">Вологий корм</a>
+            <a onclick="filterSidenav('cats','food')">Ласощі для кішок</a>
+            <a onclick="filterSidenav('cats','food')">Лікувальні корми</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Гігієна</div>
+            <a onclick="filterSidenav('cats','care')">Грумінг кішок</a>
+            <a onclick="filterSidenav('cats','care')">Наповнювачі для лотків</a>
+            <a onclick="filterSidenav('cats','care')">Косметика для кішок</a>
+            <div class="nav__drop-title" style="margin-top:12px">Здоров'я</div>
+            <a onclick="filterSidenav('cats','care')">Вітаміни для кішок</a>
+            <a onclick="filterSidenav('cats','care')">Засоби від бліх</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Турбота</div>
+            <a onclick="filterSidenav('cats','accessories')">Переноски для кішок</a>
+            <a onclick="filterSidenav('cats','accessories')">Кігтеточки</a>
+            <a onclick="filterSidenav('cats','accessories')">Лотки та туалети</a>
+            <a onclick="filterSidenav('cats','toys')">Іграшки для кішок</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__cat-item">
+        <a class="nav__link" onclick="filterSidenav('fish','all')">🐠 Аквариумістика</a>
+        <div class="nav__dropdown">
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Обладнання</div>
+            <a onclick="filterSidenav('fish','accessories')">Акваріуми</a>
+            <a onclick="filterSidenav('fish','accessories')">Фільтри та помпи</a>
+            <a onclick="filterSidenav('fish','accessories')">Компресори</a>
+            <a onclick="filterSidenav('fish','accessories')">Освітлення</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Корм для риб</div>
+            <a onclick="filterSidenav('fish','food')">Пластівці</a>
+            <a onclick="filterSidenav('fish','food')">Гранули</a>
+            <a onclick="filterSidenav('fish','food')">Живий корм</a>
+            <div class="nav__drop-title" style="margin-top:12px">Оформлення</div>
+            <a onclick="filterSidenav('fish','accessories')">Ґрунт</a>
+            <a onclick="filterSidenav('fish','accessories')">Декорації</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Здоров'я</div>
+            <a onclick="filterSidenav('fish','care')">Ліки для риб</a>
+            <a onclick="filterSidenav('fish','care')">Тести води</a>
+            <a onclick="filterSidenav('fish','care')">Кондиціонери</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__cat-item">
+        <a class="nav__link" onclick="filterSidenav('birds','all')">🦜 Птахи</a>
+        <div class="nav__dropdown">
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Клітки</div>
+            <a onclick="filterSidenav('birds','accessories')">Клітки для папуг</a>
+            <a onclick="filterSidenav('birds','accessories')">Вольєри</a>
+            <a onclick="filterSidenav('birds','accessories')">Жердинки</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Корм</div>
+            <a onclick="filterSidenav('birds','food')">Зернові суміші</a>
+            <a onclick="filterSidenav('birds','food')">Ласощі для птахів</a>
+            <a onclick="filterSidenav('birds','food')">Вітамінні добавки</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Турбота</div>
+            <a onclick="filterSidenav('birds','care')">Мінеральний камінь</a>
+            <a onclick="filterSidenav('birds','care')">Засоби для догляду</a>
+            <a onclick="filterSidenav('birds','toys')">Іграшки для птахів</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__cat-item">
+        <a class="nav__link" onclick="filterSidenav('rodents','all')">🐹 Гризуни</a>
+        <div class="nav__dropdown">
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Клітки</div>
+            <a onclick="filterSidenav('rodents','accessories')">Клітки</a>
+            <a onclick="filterSidenav('rodents','accessories')">Будиночки</a>
+            <a onclick="filterSidenav('rodents','accessories')">Тунелі та лабіринти</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Корм</div>
+            <a onclick="filterSidenav('rodents','food')">Зернові суміші</a>
+            <a onclick="filterSidenav('rodents','food')">Гранульований корм</a>
+            <a onclick="filterSidenav('rodents','food')">Ласощі та снеки</a>
+          </div>
+          <div class="nav__drop-col">
+            <div class="nav__drop-title">Розвага</div>
+            <a onclick="filterSidenav('rodents','toys')">Безшумні колеса</a>
+            <a onclick="filterSidenav('rodents','toys')">Іграшки</a>
+            <a onclick="filterSidenav('rodents','accessories')">Наповнювачі</a>
+          </div>
+        </div>
+      </div>
+      <a href="#contacts" class="nav__link">Контакти</a>
+    </nav>
+    <div class="header__actions">
       <button class="cart-btn" onclick="toggleCart()">
         🛒 <span class="cart-btn__count" id="cartCount">0</span>
       </button>
@@ -58,234 +186,20 @@
 <!-- CATALOG -->
 <section class="catalog" id="catalog">
   <div class="container">
-    <div class="catalog-layout">
-
-      <!-- SIDE NAVIGATION -->
-      <aside class="sidenav">
-        <div class="sidenav__group-header">Вихованці</div>
-        <ul class="sidenav__list">
-
-          <!-- Собаки -->
-          <li class="sidenav__item" data-cat="dogs" onclick="filterSidenav('dogs','all')">
-            <span class="sidenav__icon">🐶</span>
-            <span class="sidenav__label">Собаки</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Корм</div>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','food')">Сухий корм для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','food')">Консерви для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','food')">Кістки та ласощі</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','food')">Лікувальні корми</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','food')">Заморожені фарші</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Гігієна</div>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Грумінг собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Догляд і гігієна собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Косметика для собак</a>
-                <div class="sidenav__col-title" style="margin-top:14px">Здоров'я</div>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Вітаміни для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Засоби від бліх і кліщів</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Засоби від глистів</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','care')">Ветеринарія для собак</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Турбота про вихованця</div>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','accessories')">Аксесуари для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','accessories')">Сумки та переноски</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','accessories')">Амуніція для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','accessories')">Нашийники та повідці</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','toys')">Іграшки для собак</a>
-                <a onclick="event.stopPropagation();filterSidenav('dogs','accessories')">Одяг для собак</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Кішки -->
-          <li class="sidenav__item" data-cat="cats" onclick="filterSidenav('cats','all')">
-            <span class="sidenav__icon">🐱</span>
-            <span class="sidenav__label">Кішки</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Корм</div>
-                <a onclick="event.stopPropagation();filterSidenav('cats','food')">Сухий корм для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','food')">Вологий корм для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','food')">Ласощі для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','food')">Лікувальні корми</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Гігієна</div>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Грумінг кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Наповнювачі для лотків</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Косметика для кішок</a>
-                <div class="sidenav__col-title" style="margin-top:14px">Здоров'я</div>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Вітаміни для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Засоби від бліх і кліщів</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','care')">Засоби від глистів</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Турбота про вихованця</div>
-                <a onclick="event.stopPropagation();filterSidenav('cats','accessories')">Переноски для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','accessories')">Кігтеточки</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','accessories')">Лотки та туалети</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','toys')">Іграшки для кішок</a>
-                <a onclick="event.stopPropagation();filterSidenav('cats','accessories')">Будиночки та лежанки</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Аквариумістика -->
-          <li class="sidenav__item" data-cat="fish" onclick="filterSidenav('fish','all')">
-            <span class="sidenav__icon">🐠</span>
-            <span class="sidenav__label">Аквариумістика</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Акваріуми та обладнання</div>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Акваріуми</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Фільтри та помпи</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Компресори</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Освітлення</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Нагрівачі</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Корм для риб</div>
-                <a onclick="event.stopPropagation();filterSidenav('fish','food')">Пластівці</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','food')">Гранули</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','food')">Живий та заморожений корм</a>
-                <div class="sidenav__col-title" style="margin-top:14px">Оформлення</div>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Ґрунт</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','accessories')">Декорації</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Здоров'я</div>
-                <a onclick="event.stopPropagation();filterSidenav('fish','care')">Ліки для риб</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','care')">Тести води</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','care')">Кондиціонери</a>
-                <a onclick="event.stopPropagation();filterSidenav('fish','care')">Вода для акваріума</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Птахи -->
-          <li class="sidenav__item" data-cat="birds" onclick="filterSidenav('birds','all')">
-            <span class="sidenav__icon">🦜</span>
-            <span class="sidenav__label">Птахи</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Клітки та вольєри</div>
-                <a onclick="event.stopPropagation();filterSidenav('birds','accessories')">Клітки для папуг</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','accessories')">Вольєри</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','accessories')">Жердинки</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','accessories')">Мисочки та годівниці</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Корм</div>
-                <a onclick="event.stopPropagation();filterSidenav('birds','food')">Зернові суміші</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','food')">Ласощі для птахів</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','food')">Вітамінні добавки</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Турбота</div>
-                <a onclick="event.stopPropagation();filterSidenav('birds','care')">Мінеральний камінь</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','care')">Засоби для догляду</a>
-                <a onclick="event.stopPropagation();filterSidenav('birds','toys')">Іграшки для птахів</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Гризуни -->
-          <li class="sidenav__item" data-cat="rodents" onclick="filterSidenav('rodents','all')">
-            <span class="sidenav__icon">🐹</span>
-            <span class="sidenav__label">Гризуни</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Клітки та аксесуари</div>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','accessories')">Клітки</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','accessories')">Будиночки та гніздівлі</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','accessories')">Тунелі та лабіринти</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','accessories')">Наповнювачі</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Корм</div>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','food')">Зернові суміші</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','food')">Гранульований корм</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','food')">Ласощі та снеки</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','food')">Вітаміни</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Розвага</div>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','toys')">Безшумні колеса</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','toys')">Іграшки</a>
-                <a onclick="event.stopPropagation();filterSidenav('rodents','accessories')">Клімат та купальні</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Інші тварини -->
-          <li class="sidenav__item" data-cat="other" onclick="filterSidenav('other','all')">
-            <span class="sidenav__icon">🦔</span>
-            <span class="sidenav__label">Інші тварини</span>
-            <span class="sidenav__arrow">›</span>
-            <div class="sidenav__dropdown">
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Рептилії</div>
-                <a onclick="event.stopPropagation();filterSidenav('other','accessories')">Тераріуми</a>
-                <a onclick="event.stopPropagation();filterSidenav('other','food')">Корм для рептилій</a>
-                <a onclick="event.stopPropagation();filterSidenav('other','accessories')">Обладнання</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Черепахи</div>
-                <a onclick="event.stopPropagation();filterSidenav('other','food')">Корм для черепах</a>
-                <a onclick="event.stopPropagation();filterSidenav('other','accessories')">Акваріуми для черепах</a>
-              </div>
-              <div class="sidenav__col">
-                <div class="sidenav__col-title">Комахи та павуки</div>
-                <a onclick="event.stopPropagation();filterSidenav('other','accessories')">Тераріуми</a>
-                <a onclick="event.stopPropagation();filterSidenav('other','food')">Корм</a>
-              </div>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="sidenav__divider"></div>
-        <button class="sidenav__plain-item" onclick="filterSidenav('all','all')">🛍️ Всі товари</button>
-        <div class="sidenav__divider"></div>
-        <div class="sidenav__plain-item sidenav__plain-item--label">Бренди</div>
-        <div class="sidenav__plain-item sidenav__plain-item--label">Блог</div>
-      </aside>
-
-      <!-- CATALOG MAIN -->
-      <div class="catalog-main">
-        <div class="catalog__header">
-          <h2 class="section-title">Товари зі знижкою</h2>
-          <div class="catalog__sort">
-            <label for="sortSelect">Сортування:</label>
-            <select id="sortSelect" onchange="renderProducts()">
-              <option value="default">За замовчуванням</option>
-              <option value="price-asc">Ціна: за зростанням</option>
-              <option value="price-desc">Ціна: за спаданням</option>
-              <option value="name">За назвою</option>
-            </select>
-          </div>
-        </div>
-        <div class="type-filters" id="typeFilters">
-          <button class="type-btn active" data-type="all">Всі</button>
-          <button class="type-btn" data-type="food">🍖 Корм</button>
-          <button class="type-btn" data-type="toys">🎾 Іграшки</button>
-          <button class="type-btn" data-type="accessories">🏠 Аксесуари</button>
-          <button class="type-btn" data-type="care">✂️ Догляд</button>
-        </div>
-        <div class="products-grid" id="productsGrid"></div>
-        <p class="catalog__empty" id="catalogEmpty" style="display:none;">Товари не знайдено</p>
+    <div class="catalog__header">
+      <h2 class="section-title">Товари зі знижкою</h2>
+      <div class="catalog__sort">
+        <label for="sortSelect">Сортування:</label>
+        <select id="sortSelect" onchange="renderProducts()">
+          <option value="default">За замовчуванням</option>
+          <option value="price-asc">Ціна: за зростанням</option>
+          <option value="price-desc">Ціна: за спаданням</option>
+          <option value="name">За назвою</option>
+        </select>
       </div>
-
     </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <p class="catalog__empty" id="catalogEmpty" style="display:none;">Товари не знайдено</p>
   </div>
 </section>
 
