@@ -266,6 +266,9 @@ function submitCheckout(e) {
   e.target.reset();
 }
 
+// ===================== APPS SCRIPT ENDPOINT =====================
+const APPS_SCRIPT_URL = "ВСТАВТЕ_URL_ВЕБ-ДОДАТКУ"; // https://script.google.com/macros/s/.../exec
+
 // ===================== CONTACT FORM =====================
 function submitForm(e) {
   e.preventDefault();
