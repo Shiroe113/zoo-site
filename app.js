@@ -1,7 +1,7 @@
 // ===================== STATE =====================
 let PRODUCTS = [];
 let cart = JSON.parse(localStorage.getItem("zm_cart") || "[]");
-let activeCategory = "all";
+let activeCategory = "sale";
 let activeType = "all";
 let searchQuery = "";
 
@@ -70,8 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===================== RENDER PRODUCTS =====================
 function renderProducts() {
   const sort = document.getElementById("sortSelect").value;
+  // Update catalog title
+  const titleEl = document.querySelector('.catalog .section-title');
+  if (titleEl) {
+    const titles = { sale: 'Товари зі знижкою', all: 'Каталог товарів', dogs: 'Собаки', cats: 'Кішки', birds: 'Птахи', fish: 'Аквариумістика', rodents: 'Гризуни' };
+    titleEl.textContent = titles[activeCategory] || 'Каталог товарів';
+  }
+
   let list = PRODUCTS.filter(p => {
-    const catMatch = activeCategory === "all" || p.cat === activeCategory;
+    const catMatch = activeCategory === "all"
+      ? true
+      : activeCategory === "sale"
+        ? !!p.oldPrice
+        : p.cat === activeCategory;
     const typeMatch = activeType === "all" || p.type === activeType;
     const searchMatch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
     return catMatch && typeMatch && searchMatch;
@@ -264,6 +275,22 @@ function submitCheckout(e) {
   closeCheckout();
   toggleCart();
   e.target.reset();
+}
+
+// ===================== SIDENAV FILTER =====================
+function filterSidenav(cat, type) {
+  activeCategory = cat;
+  activeType = type || "all";
+  searchQuery = "";
+  document.getElementById("searchInput").value = "";
+  document.querySelectorAll(".type-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.type === activeType);
+  });
+  document.querySelectorAll(".sidenav__item[data-cat]").forEach(i => {
+    i.classList.toggle("active", i.dataset.cat === cat);
+  });
+  renderProducts();
+  document.getElementById("catalog").scrollIntoView({ behavior: "smooth" });
 }
 
 // ===================== APPS SCRIPT ENDPOINT =====================
